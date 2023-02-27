@@ -1,0 +1,126 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+main{
+    height: 100%;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    padding-bottom: 100px;
+    
+}
+
+header{
+    
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+
+#shoppingBtn{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #f53d2d;
+    
+}
+
+header i {
+    font-size: 24px;
+    
+}
+#card{
+    background-color: white;
+    border-radius: 20px;
+    transition: all 0.5s;
+}
+#cardMain{
+    padding-top: 100px;
+}
+
+#card:hover{
+    transform: scale(0.8);
+}
+
+.card-top{
+    padding: 10px 20px;
+}
+
+.card-top p{
+    font-size: 14px;
+    color: red;
+    line-height: 16px;
+    font-weight: 400;
+    font-style: italic;
+}
+.card-top i{
+    font-size: 26px;
+    line-height: 30px;
+}
+#cardImg{
+    height: 200px;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.card-img{
+    margin: 20px 0px;
+}
+
+#cardName{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0px;
+    
+}
+
+.card-bottom{
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+}
+
+.cardInfo{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#price{
+    font-weight: 500;
+    color:#e73c7e;
+    font-size: 18px;
+}
+#btnAddCard{
+    outline: none;
+    border: 1px solid white;
+    background-color: #e73c7e;
+    padding: 4px 10px;
+    color: white;
+    border-radius: 50px;
+    transition: all 0.5s;
+}
+#btnAddCard:hover{
+    background-color: transparent;
+    color: black;
+    border: 1px solid red;
+    transform: scale(0.9);
+}
