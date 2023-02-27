@@ -124,3 +124,13 @@ header i {
     border: 1px solid red;
     transform: scale(0.9);
 }
+
+.admin-main {
+    width: 90%;
+}
+
+.spanNoti{
+    color: red;
+    margin-left: 2px; 
+    display: none;
+}

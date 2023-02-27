@@ -1,7 +1,7 @@
 class Product {
-    constructor(_id,__name_,_price,_screen,_backCamera,_frontCamera,_img,_desc,_type){
+    constructor(_id,__name,_price,_screen,_backCamera,_frontCamera,_img,_desc,_type){
         this.id = _id
-        this.name = _name;
+        this.name = __name;
         this.price = _price;
         this.screen = _screen;
         this.backCamera = _backCamera;
