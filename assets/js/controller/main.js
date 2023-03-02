@@ -95,6 +95,13 @@ const getIphone = () => {
         })
 }
 
+//Cart
+const showCart = () => {
+    getEle("cart").style.visibility = "visible";
+}
 
-
+//Close Cart layout
+getEle("closeCart").addEventListener("click",()=>{
+    getEle("cart").style.visibility = "hidden";
+})
 
