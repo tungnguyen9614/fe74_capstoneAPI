@@ -28,6 +28,7 @@ body {
     background-size: 300% 300%;
 }
 
+/* Header */
 header{
     
     display: flex;
@@ -60,11 +61,13 @@ header button {
 }
 
 #shoppingBtn{
+    position: absolute;
     outline: none;
     border: none;
     background-color: transparent;
     color: black;
-    
+    top: 0;
+    right: 10px;
 }
 
 #shoppingBtn i {
@@ -73,7 +76,7 @@ header button {
 
 .total-qty {
     position: absolute;
-    right: 30px;
+    right: 20px;
     top: -14px;
     color: black;
     font-size: 15px;
@@ -89,6 +92,8 @@ header i {
     font-size: 24px;
     
 }
+
+/* Container */
 #card{
     background-color: white;
     border-radius: 20px;
@@ -176,3 +181,162 @@ header i {
     margin-left: 2px; 
     display: none;
 }
+
+/* Cart */
+.cart {
+    visibility: hidden;
+    padding-top: 10px;
+    z-index: 5;
+    position: absolute;
+    right: -10px;
+    top: -20px;
+    background-color: black;
+    width: 60%;
+    height: 100vh;
+}
+
+.cart-top h2{
+    text-align: center;
+    color: white;
+}
+
+#closeCart {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#closeCart i {
+    color: white;
+    border-radius: 50%;
+    border: 1px solid white;
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 1.6rem;
+    border: none;
+}
+
+.cardList {
+    width: 100%;
+}
+
+.cart-bottom {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+}
+
+.cart-bottom .total{
+    text-align: right;
+    color: white;
+    position: absolute;
+    top: -30px;
+    right: 25px;
+}
+
+.action-button {
+    justify-content: space-evenly;
+}
+
+.action-button .btn {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    border: 1px solid white;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.action-button .btn span {
+    color: white;
+}
+
+/* Purchase */
+.purchase{
+    display: block;
+    /* position: absolute; */
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.634);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.purchase-content{
+    margin: 2rem;
+    padding: 1.2rem;
+    width: 95%;
+    height: 90%;
+    background-color: black;
+    border-radius: 1rem;
+    color: white;
+    padding: 50px;
+}
+
+.shipping-item {
+    list-style: none;
+}
+
+.shipping-item li.item {
+    display: flex;
+    justify-content: space-between;
+}
+
+hr {
+    color: white;
+}
+
+.total-payment {
+    display: flex;
+    justify-content: space-between;
+}
+
+.purchase-button {
+    padding-top: 30rem;
+}
+
+.purchase-button .btn {
+    color: white;
+    margin-right: 3rem;
+    padding: 10px 20px;
+}
+
+li.item {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Order */
+/* .order {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    z-index: 10;
+    display: none;
+} */
+
+.order-content {
+    width: 500px;
+    height: 350px;
+    background-color: black;
+    text-align: center;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.order-content p {
+    margin: 0.8rem 2rem;
+    color: white;
+}
+
+#btnOK {
+    padding: 10px 50px;
+    border-radius: 20px;
+    color: white;
+}
+
+
