@@ -14,13 +14,18 @@
       background-position: 0% 50%;
     }
   }
-main{
+/* main{
     height: 100%;
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
     padding-bottom: 100px;
     
+} */
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    animation: gradient 15s ease infinite;
+    background-size: 300% 300%;
 }
 
 header{
@@ -34,13 +39,50 @@ header{
     z-index: 9999;
 }
 
+header button {
+    margin: 0 10px;
+}
+
+.search {
+    border: 1px solid #0b4ca1;
+    border-radius: 50px;
+    padding: 0 10px;
+}
+
+.search span{
+    font-size: 30px;
+    color: white;
+    font-weight: 500;
+}
+
+.search i {
+    color: white;
+}
 
 #shoppingBtn{
     outline: none;
     border: none;
     background-color: transparent;
-    color: #f53d2d;
+    color: black;
     
+}
+
+#shoppingBtn i {
+    font-size: 30px;
+}
+
+.total-qty {
+    position: absolute;
+    right: 30px;
+    top: -14px;
+    color: black;
+    font-size: 15px;
+    border: 1px solid white;
+    text-align: center;
+    border-radius: 50%;
+    background: white;
+    padding: 0px 2px;
+    font-weight: bold;
 }
 
 header i {

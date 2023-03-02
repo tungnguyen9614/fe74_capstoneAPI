@@ -1,6 +1,6 @@
-let callAPI = new CallAPI();
-let validation = new Validation();
-let imgServer = "";
+var callAPI = new CallAPI();
+var validation = new Validation();
+var imgServer = "";
 
 function getEle(id){
     return document.getElementById(id);
@@ -24,7 +24,7 @@ function getListData() {
 getListData()
 
 function renderData(data){
-    let contentHTML = "";
+    var contentHTML = "";
     data.forEach(function(item,i){
         contentHTML += `
             <tr>
@@ -60,19 +60,19 @@ getEle("btnAdd").addEventListener("click",function(){
 })
 
 function handleAdd(){
-    let name = getEle("name").value;
-    let price = getEle("priceAdmin").value;
-    let screen = getEle("screen").value;
-    let backCam = getEle("backCam").value;
-    let frontCam = getEle("frontCam").value;
-    let desc = getEle("desc").value;
-    let type = getEle("type").value;
-    let img = "";
+    var name = getEle("name").value;
+    var price = getEle("priceAdmin").value;
+    var screen = getEle("screen").value;
+    var backCam = getEle("backCam").value;
+    var frontCam = getEle("frontCam").value;
+    var desc = getEle("desc").value;
+    var type = getEle("type").value;
+    var img = "";
     if(getEle("image").files.length >0){
         img = getEle("image").files[0].name;
     }
 
-    let isValid = true;
+    var isValid = true;
     isValid &= validation.checkEmpty(name,"nameNoti","(*)Please insert product's name");
     isValid &= validation.checkEmpty(price,"priceNoti","(*)Please insert product's price")
         && validation.checkNumber(price,"priceNoti","(*)Price must be a number");
@@ -84,7 +84,7 @@ function handleAdd(){
 
     if (!isValid) return null;
 
-    let product = new Product("",name, price, screen, backCam, frontCam, img, desc, type);
+    var product = new Product("",name, price, screen, backCam, frontCam, img, desc, type);
     callAPI.addProduct(product)
         .then(function(){
             getListData();
@@ -97,7 +97,7 @@ function handleAdd(){
 }
 
 /**
- * Delete product
+ * Devare product
  */
 function handleDelete(id){
     callAPI.deleteProduct(id)
@@ -121,7 +121,7 @@ function handleEdit(id) {
 
     callAPI.getProductByID(id)
         .then(function(result){
-            let product = result.data;
+            var product = result.data;
             getEle("name").value = product.name;
             getEle("priceAdmin").value = product.price;
             getEle("screen").value = product.screen;
@@ -140,14 +140,15 @@ function handleEdit(id) {
  * Update Product
  */
 function handleUpdate(id){
-    let name = getEle("name").value;
-    let price = getEle("priceAdmin").value;
-    let screen = getEle("screen").value;
-    let backCam = getEle("backCam").value;
-    let frontCam = getEle("frontCam").value;
-    let desc = getEle("desc").value;
-    let type = getEle("type").value;
-    let img = "";
+
+    var name = getEle("name").value;
+    var price = getEle("priceAdmin").value;
+    var screen = getEle("screen").value;
+    var backCam = getEle("backCam").value;
+    var frontCam = getEle("frontCam").value;
+    var desc = getEle("desc").value;
+    var type = getEle("type").value;
+    var img = "";
     if(getEle("image").files.length >0){
         img = getEle("image").files[0].name;
     }
@@ -156,30 +157,29 @@ function handleUpdate(id){
         img = imgServer;
     }
 
-    // let isValid = true;
-    // isValid &= validation.checkEmpty(name,"nameNoti","(*)Please insert product's name");
-    // isValid &= validation.checkEmpty(price,"priceNoti","(*)Please insert product's price")
-    //     && validation.checkNumber(price,"priceNoti","(*)Price must be a number");
-    // isValid &= validation.checkEmpty(screen,"screenNoti","(*)Please insert product's screen");
-    // isValid &= validation.checkEmpty(backCam,"backCamNoti","(*)Please insert product's back Camera");
-    // isValid &= validation.checkEmpty(frontCam,"frontCamNoti","(*)Please insert product's front Camera");
-    // isValid &= validation.checkEmpty(desc,"descNoti","(*)Please insert product's descripstion");
-    // isValid &= validation.checkEmpty(name,"nameNoti","(*)Please insert product's name");
+    var isValid = true;
+    isValid &= validation.checkEmpty(name,"nameNoti","(*)Please insert product's name");
+    isValid &= validation.checkEmpty(price,"priceNoti","(*)Please insert product's price")
+        && validation.checkNumber(price,"priceNoti","(*)Price must be a number");
+    isValid &= validation.checkEmpty(screen,"screenNoti","(*)Please insert product's screen");
+    isValid &= validation.checkEmpty(backCam,"backCamNoti","(*)Please insert product's back Camera");
+    isValid &= validation.checkEmpty(frontCam,"frontCamNoti","(*)Please insert product's front Camera");
+    isValid &= validation.checkEmpty(desc,"descNoti","(*)Please insert product's descripstion");
+    isValid &= validation.checkEmpty(name,"nameNoti","(*)Please insert product's name");
 
-    // if (!isValid) return null;
+    if (!isValid) return null;
 
-    let product = new Product(id,name,price,screen,backCam,frontCam,img,desc,type);
+    var product = new Product(id,name,price,screen,backCam,frontCam,img,desc,type);
     callAPI
         .updateProduct(product,id)
         .then(function(){
             getListData();
             document.getElementsByClassName("close")[0].click();
             imgServer= "";
-            resetForm();
            
         })
         .catch(function(error){
             console.log(error);
-        })
+        });
     resetForm();
 }
