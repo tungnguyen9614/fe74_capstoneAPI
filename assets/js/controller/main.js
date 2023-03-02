@@ -7,8 +7,8 @@ function getListProduct (){
     var promise = callApi.fetchList()
     promise
     .then((result) => {
-        console.log(result.data)
-        renderListProduct(result.data)
+        console.log(result.data);
+        renderListProduct(result.data);
     }).catch((err) => {
         console.log(err);
     });
@@ -51,4 +51,50 @@ function renderListProduct (data){
     });
     getEle('cardMain').innerHTML = content;
 }
+
+/**
+ * Search Product
+ */
+const getAll = () => {
+    getListProduct();
+}
+
+const getSamsung = () => {
+    let arrSamsung = [];
+    let promise =  callApi.fetchList();
+    promise
+        .then((result)=>{
+            let arr = result.data;
+            for(let index=0 ; index< arr.length; index++){
+                if(arr[index].type === "Samsung"){
+                    arrSamsung.push(arr[index]);
+                }
+            }
+            renderListProduct(arrSamsung);
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+}
+
+const getIphone = () => {
+    let arrIphone = [];
+    let promise =  callApi.fetchList();
+    promise
+        .then((result)=>{
+            let arr = result.data;
+            for(let index=0 ; index< arr.length; index++){
+                if(arr[index].type === "Iphone"){
+                    arrIphone.push(arr[index]);
+                }
+            }
+            renderListProduct(arrIphone);
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+}
+
+
+
 
