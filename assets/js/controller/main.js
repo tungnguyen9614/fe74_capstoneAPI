@@ -279,7 +279,7 @@ const renderInvoice = (data) => {
           <span>${cartItem.product.name}<b> x ${cartItem.quality}</b></span>
         </div>
         <div class="items-price">
-          <span>${price}</span>
+          <span>$${price}</span>
         </div>
         
       </div>
