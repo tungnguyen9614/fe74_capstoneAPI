@@ -28,17 +28,13 @@
   </head>
   <body>
     <!-- Header -->
-    <header class="mt-3 px-2">
+    <header class="mt-3 px-2y">
       <nav
         class="navbar navbar-expand-lg nav-header"
         style="position: absolute"
       >
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="search">
-              <i class="fa-solid fa-magnifying-glass"></i>
-              <span>Search: </span>
-            </div>
             <button class="btn btn-info" onclick="getAll()">All</button>
             <button class="btn btn-primary" onclick="getSamsung()">
               Samsung
@@ -46,10 +42,10 @@
             <button class="btn btn-secondary" onclick="getIphone()">
               Iphone
             </button>
-            <!-- <form class="d-flex" role="search">
+            <form class="d-flex" role="search">
                       <input class="form-control me-2" type="search" placeholder="Search type" aria-label="Search">
                       <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form> -->
+                    </form>
           </div>
         </div>
       </nav>
@@ -57,9 +53,9 @@
         <i class="fas fa-shopping-cart"></i>
       </button>
       <span class="total-qty">0</span>
-
+      <div class="cartOverplay"></div>
       <!-- Cart -->
-      <div id="cart" class="cart" style="visibility: hidden">
+      <div id="cart" class="cart">
         <div class="cart-top">
           <h2>Cart</h2>
           <button id="closeCart" class="btn" type="button">
@@ -68,15 +64,18 @@
         </div>
 
         <div class="cart-body">
-          <!-- <span class="empty-cart"
-            >Looks Like You Haven't Added Any Product In The Cart</span
-          > -->
-          <div class="cardList"></div>
+          <div class="empty-cart text-center"
+            ><img class ="Img-noProduct" src="./assets/img/9bdd8040b334d31946f49e36beaf32db.png" alt="">
+            <p class="text-primary">No Product</p></div
+          >
+
+         <div id="cardList" class="text-center"></div>
         </div>
+      
         <div class="cart-bottom">
-          <span class="total">Total: 0</span>
+          <span class="total">Total:$0</span>
           <div class="action-button">
-            <button onclick="buy()" class="btn buy">
+            <button onclick="buy()" class="btn buy" data-bs-toggle="modal" data-bs-target="#exampleModal">
               <span>Purchase</span>
               <i class="fas fa-credit-card" style="color: #6665dd"></i>
             </button>
@@ -94,47 +93,57 @@
       <div class="row" id="cardMain"></div>
     </div>
 
-    <!-- Purchase -->
-    <div class="purchase">
-      <div class="purchase-content">
-        <div class="purchase-detail">
-          <ul id="shipping-item">
-            <li class="item">
-              <span>1 x Iphone14 Promax</span>
-              <span>$ 1200</span>
-            </li>
-          </ul>
-          <hr />
-          <div class="payment">
-            <em>payment</em>
-            <div class="total-payment">
-              <p>total amount to be paid:</p>
-              <span class="pay">$ 400</span>
-            </div>
-          </div>
-        </div>
-        <div class="purchase-button">
-          <button onclick="order()" class="btn btn-info">Order Now</button>
-          <button onclick="cancel()" class="btn btn-danger">Cancel</button>
-        </div>
-      </div>
-    </div>
 
     <!-- Order -->
+    
     <div class="order">
-      <div class="order-content">
-          <p>Your order has been placed </p>
-          <p>Your order will be delivered to you in 3-5 working days</p>
-          <p>You can pay <span id="payed">$1700</span> by card or any online transaction method after the products have
-              been dilivered to you</p>
-          <button id="btnOK" class="btn btn-info">OKAY</button>
+      <div class="orderDialog">
+        <div class="order-content">
+        <p>Your order has been placed </p>
+        <p>Your order will be delivered to you in 3-5 working days</p>
+        <p>You can pay <span id="payed">$</span> by card or any online transaction method after the products have
+            been dilivered to you</p>
+        <button id="btnOK" class="btn btn-info">OKAY</button>
+    </div>
       </div>
+      
   </div>
 
-    <!-- <div class="stock-limit">
-      <em>You Can Only Buy 10 Items For Each Product</em>
-      <button class="btn-ok" onclick="limitPurchase(this)">Okay</button>
-    </div> -->
+
+<!-- Modal -->
+<div class="modal  fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+        <div class="modal-content bg-black">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Payments</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="shipping-items">
+              <div class="items-name">
+                <span><b>x</b></span>
+              </div>
+              <div class="items-price">
+                <span>0</span>
+              </div>
+            </div>
+            <hr/>
+          </div>
+          <div class="payment">
+            <span>Payment Total :
+            </span>
+            <div>
+              <span class="pay">0</span>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" onclick="orderPayment()">Order Now</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+          </div>
+        </div>
+      </div>
+</div>
+
   </body>
   <!-- Bootrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -142,6 +151,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
   <!-- JS -->
   <script src="./assets/js/models/product.js"></script>
+  <script src="./assets/js/models/cartItem.js"></script>
   <script src="./assets/js/services/callapi.js"></script>
   <script src="./assets/js/controller/main.js"></script>
 </html>
