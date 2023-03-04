@@ -26,7 +26,7 @@ function renderListProduct (data){
             logo = `<i style="color:white" class="fa-brands fa-apple"></i>`;
         }
         content += `
-        <div class="col-lg-3">
+        <div class="col-lg-3 mb-4">
             <div id="card">
                 <div class="card-top d-flex align-items-center justify-content-between">
                     ${logo}
@@ -40,7 +40,7 @@ function renderListProduct (data){
                     <div class="cardInfo">
                     <div id="screen">Màn hình : ${items.screen}</div>
                     <div id="backCamera">Camera sau : ${items.backCamera}</div>
-                    <div id="frontCamera">Camera trước : ${items.frontCamera}"</div>
+                    <div id="frontCamera">Camera trước : ${items.frontCamera}</div>
                     <div id="desc">Mô tả : ${items.desc}</div>
                     <div id="type">Thể loại : ${items.type}</div>
                     </div>
@@ -164,8 +164,10 @@ function renderCartItem(){
         getEle('cardList').innerHTML += 
         `<div class="cardList">
         <img class="card-list-img" src="${item.product.img}" alt=""> 
-         <p class="card-list-name">${item.product.name}</p>
-         <div class="btn-number">
+        <div style="width:40%">
+            <p class="card-list-name">${item.product.name}</p>
+        </div>
+         <div class="btn-number" style="width:20%; text-align:center">
            <button class="btn-minimus" onclick = "changeNumber(${item.product.id},false)">
              <i class="fa-solid fa-chevron-left"></i>
            </button>
@@ -174,9 +176,9 @@ function renderCartItem(){
              <i class="fa-solid fa-chevron-right"></i>
            </button>
          </div>
-         <p class="card-list-price">
-           $${price}
-         </p>
+         <div style="width:20%;text-align:left">
+            <p class="card-list-price">$${price}</p>
+         </div>
          <button class="btn" onclick="deleteCart(${item.product.id})">
             <i class="fas fa-trash" style="color: #bb342f"></i>
          </button>
