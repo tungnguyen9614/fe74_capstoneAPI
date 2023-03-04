@@ -95,7 +95,7 @@ header i {
 
 /* Container */
 #card{
-    background-color: white;
+    background-color: #010101;
     border-radius: 20px;
     transition: all 0.5s;
 }
@@ -113,7 +113,7 @@ header i {
 
 .card-top p{
     font-size: 14px;
-    color: red;
+    color: #90d84b;
     line-height: 16px;
     font-weight: 400;
     font-style: italic;
@@ -142,8 +142,9 @@ header i {
 
 .card-bottom{
     padding: 10px 20px;
-    background-color: #f8f9fa;
+    background-color: #2e2f33;
     border-radius: 20px;
+    color: white;
 }
 
 .cardInfo{
@@ -166,9 +167,9 @@ header i {
     transition: all 0.5s;
 }
 #btnAddCard:hover{
-    background-color: transparent;
+    background-color: white;
     color: black;
-    border: 1px solid red;
+    border: 1px solid black;
     transform: scale(0.9);
 }
 
@@ -188,8 +189,8 @@ header i {
     padding-top: 10px;
     z-index: 5;
     position: absolute;
-    right: 0;
-    top: -14px;
+    right: -25px;
+    top: 0;
     text-align: center;
     background-color: black;
     width: 50%;
@@ -225,7 +226,7 @@ header i {
 
 .cart-bottom {
     text-align: right;
-    margin: 20px 0px;
+    margin: 20px;
 }
 
 .total{
@@ -289,8 +290,8 @@ li.item {
    position: fixed;
    top: 0;
    right: 0;
+   bottom: 10px;
    left: 0;
-   bottom: 0;
     background: rgba(0, 0, 0, 0.75);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
@@ -404,9 +405,3 @@ li.item {
     margin: 0px 20px;
     padding-bottom: 32px;
 }
-
-
-
-
-
-
