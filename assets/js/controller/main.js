@@ -17,12 +17,19 @@ function getListProduct (){
 getListProduct()
 
 function renderListProduct (data){
+    var logo = "";
     var content = "";
     data.forEach(items => {
+        if(items.type === "Samsung"){
+            logo = `<i style="color:white" class="fa-brands fa-android"></i>`;
+        }else if (items.type === "Iphone"){
+            logo = `<i style="color:white" class="fa-brands fa-apple"></i>`;
+        }
         content += `
         <div class="col-lg-3">
             <div id="card">
                 <div class="card-top d-flex align-items-center justify-content-between">
+                    ${logo}
                     <p class="my-0">In Stock</p>
                 </div>
                 <div class="card-img">
@@ -170,7 +177,9 @@ function renderCartItem(){
          <p class="card-list-price">
            $${price}
          </p>
-         <button class="btn btn-danger" onclick="deleteCart(${item.product.id})">Remove</button>
+         <button class="btn" onclick="deleteCart(${item.product.id})">
+            <i class="fas fa-trash" style="color: #bb342f"></i>
+         </button>
      </div>`
     })
     
@@ -255,7 +264,7 @@ getEle('btnOK').addEventListener('click',()=>{
     document.querySelector('.order').style.transform = "translateY(-1000px)"
     location.reload()
     clearCart();
-    
+ 
 })
 
 // render
