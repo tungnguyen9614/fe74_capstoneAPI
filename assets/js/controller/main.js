@@ -23,7 +23,6 @@ function renderListProduct (data){
         <div class="col-lg-3">
             <div id="card">
                 <div class="card-top d-flex align-items-center justify-content-between">
-                    <i class="fab fa-apple"></i>
                     <p class="my-0">In Stock</p>
                 </div>
                 <div class="card-img">
@@ -41,7 +40,8 @@ function renderListProduct (data){
                     <div class="cardPrice d-flex align-items-center justify-content-between my-3">
                         <div id="price">$${items.price}</div>
                     <button id="btnAddCard" onclick ="AddtoCart(${items.id})">
-                        Add card
+                        <span>Add</span>
+                        <i class="fas fa-chevron-right"></i>
                     </button>
                     </div>
                 </div>
@@ -251,7 +251,7 @@ const orderPayment = () => {
 }
 
 getEle('btnOK').addEventListener('click',()=>{
-    alert("You Succes Order , Thanks so much");
+    alert("Your order has been placed , Thanks for shopping with us");
     document.querySelector('.order').style.transform = "translateY(-1000px)"
     location.reload()
     clearCart();
