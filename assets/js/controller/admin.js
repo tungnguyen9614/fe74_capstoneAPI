@@ -53,6 +53,7 @@ function renderData(data){
  * Add product
  */
 getEle("btnAdd").addEventListener("click",function(){
+    getEle("formProduct").reset();
     document.getElementsByClassName("modal-title")[0].innerHTML = "Add product";
     document.getElementsByClassName("modal-footer")[0].innerHTML = `
         <button class="btn btn-success" onclick="handleAdd()">Add</button>
