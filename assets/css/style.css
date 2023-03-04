@@ -60,6 +60,31 @@ header button {
     color: white;
 }
 
+.login {
+    position: absolute;
+    outline: none;
+    border: none;
+    top: 15px;
+    right: 180px;
+    background-color: #0dcaf0;
+    border-radius: 15px;
+    padding:0 15px;
+}
+
+.login button {
+    color: white ;
+}
+
+.login i {
+    position: absolute;
+    top: 7px;
+    left: 10px;
+}
+
+.login a {
+    text-decoration: none
+}
+
 #shoppingBtn{
     position: absolute;
     outline: none;
@@ -175,6 +200,11 @@ header i {
 
 .admin-main {
     width: 90%;
+}
+
+.backToHome button {
+    background-color: rgb(9, 46, 78);
+    border-radius: 15px 0 0 15px;
 }
 
 .spanNoti{
